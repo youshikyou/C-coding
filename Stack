@@ -35,6 +35,28 @@ int is_full(const stack *stk){
   return (stk->top ==FULL);
 }
 
+int main() {
 
+	stack stack_of_char;
+	const char *str = "I am Goat";
+	char stack_back[10];
+
+	reset(&stack_of_char);
+	int i = 0;
+	printf("original is : %s\n", str);
+	while (str[i] != '\0') {
+		push(str[i++], &stack_of_char);  // remember str[i], then i++
+	}
+	i = 0;
+	
+	while (!is_empty(&stack_of_char) && i < 14) {
+		stack_back[i++] = pop(&stack_of_char);
+	}
+	
+	printf("reverse is: %s\n", stack_back);
+
+
+	return 0;
+}
 
 
