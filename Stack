@@ -49,7 +49,7 @@ int main() {
 	}
 	i = 0;
 	
-	while (!is_empty(&stack_of_char) && i < 14) {
+	while (!is_empty(&stack_of_char) && i < 10) {
 		stack_back[i++] = pop(&stack_of_char);
 	}
 	
