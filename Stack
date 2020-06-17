@@ -20,7 +20,7 @@ void push(char c, stack *stk){
 
 char pop(stack *stk){
 
-  return stk->s[stk->top--];
+  return stk->s[stk->top--];  //get s[stk->top] then top-- , very critial.
 }
 
 char top(const stack *stk){
