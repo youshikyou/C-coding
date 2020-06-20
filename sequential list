@@ -1,0 +1,116 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 5
+
+typedef struct Table {
+	int *head;
+	int len;
+	int size;
+}table;
+
+
+table initTable() {
+	table tb;
+
+	tb.head = (int *) malloc(SIZE * sizeof(int));
+
+	if (!tb.head) {
+		printf("initialization failed.");
+		exit(0);
+	}
+	tb.size = SIZE;
+	tb.len = 0;
+	return tb;
+}
+
+table addElem(table t, int elem, int position) {
+	if (position<0 || position > t.size - 1) {
+		printf("out of range!");
+		return t;
+	}
+	if (t.len == t.size) {
+		t.head = (int *)realloc(t.head, (t.size + 1) * sizeof(int));
+		if (!t.head) {
+			printf("no more memory");
+			return t;
+		}
+		t.size++;
+	}
+
+	for (int i = t.len-1; i >=position; i--) {
+		t.head[i+1] = t.head[i];
+	}
+	t.head[position] = elem;
+	t.len++;
+	return t;
+}
+
+table delElem(table t, int position) {
+
+	if (position<0 || position>t.len) {
+		printf("delete position is wrong.");
+		return t;
+	}
+	for (int i = position; i < t.len-1; i++) {
+		t.head[i] = t.head[i + 1];
+	}
+	t.len--;
+	return t;
+}
+
+int findElem(table t, int elem) {
+
+	for (int i = 0; i < t.len; i++) {
+		if (t.head[i] == elem) {
+			return i;
+		}
+	}
+	return -1;
+
+}
+
+table amendElem(table t, int oldElem, int newElem) {
+	int i = findElem(t, oldElem);
+	if (i == -1) {
+		printf("no such element.");
+		exit(0);
+	}
+	t.head[i] = newElem;
+	return t;
+}
+
+void displayTable(table t) {
+
+	for (int i = 0; i < t.len; i++) {
+		printf("%d ", t.head[i]);
+	}
+	printf("\n");
+}
+
+int main() {
+	table t1 = initTable();
+	for (int i = 0; i <= SIZE; i++) {
+		t1.head[i] = i;
+		t1.len++;
+	}
+	printf("table is ：\n");
+	displayTable(t1);
+
+	printf("delete 2th element:\n");
+	t1 = delElem(t1, 1);
+	displayTable(t1);
+
+	printf("insert 5 in position 2:\n");
+	t1 = addElem(t1, 5, 2);
+	displayTable(t1);
+
+	printf("find 3:\n");
+	int idx = findElem(t1, 3);
+	printf("%d\n", idx);
+
+	printf("modify num 3 to 6:\n");
+	t1 = amendElem(t1, 3, 6);
+	displayTable(t1);
+	return 0;
+}
+
