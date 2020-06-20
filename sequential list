@@ -1,3 +1,18 @@
+
+/*
+define structure table
+table initList
+table addElem(table t, int elem,int position)
+table delElem(table t, int elem)
+int findElem(table t, int elem)
+amendElem(table t, int old, int new )
+displayList
+
+
+*/
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 5
