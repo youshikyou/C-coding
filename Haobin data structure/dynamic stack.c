@@ -14,7 +14,7 @@ At the beginning , the pBottom and pTop should point to the head node.
 
 typedef struct Node {
 	int data;
-	struct Node * next;
+	struct Node * next;  //next 这里理解成前一个node 地址比较好，防止你时间久了忘了，哈哈哈
 } Node, *PNode;
 
 typedef struct stack {
