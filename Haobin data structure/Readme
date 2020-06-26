@@ -3,6 +3,10 @@
 链表是有一个head node，它无有效数据，但存放第一个node的地址。
 由head node可以遍寻整个链表。
 
+head node
+first node:first valid node
+last node:last valid node
+
 动态栈特征:
 动态栈本身是一个两个指针组成的数据结构， 这个结构里面有指向栈底的指针和指向栈顶的指针。
 栈底指针永远指向head node，栈顶指针指向最后一个node。
@@ -20,3 +24,5 @@ node本身存储的数据可以自由定义类型。
 1.递归必须要有一个明确的终止条件
 2.该函数处理的数据规模必须递减
 3.这个转化必须是可解的
+
+
