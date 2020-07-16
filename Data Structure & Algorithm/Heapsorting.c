@@ -18,7 +18,7 @@ void adjustdown(int *arr, int k, int len) {
 		}
 		else {
 			arr[k] = arr[i];
-			k = i;   //
+			k = i;   //k就是标记最开始那个arr[0]应该去的最后树的序号位置。
 		}
 	}
 	arr[k] = arr[0];
