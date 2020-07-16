@@ -38,3 +38,17 @@ void heapsort(int *arr, int len) {
 		adjustdown(arr, 1, i - 1); //因为已经把当前最大值调整到堆的底部，所以排除 i-1，再调整.
 	}
 }
+
+
+/*插入一个节点*/
+void adjustup(int * arr, int len, int k) {
+	arr[0] = arr[k];
+	int i = k / 2; //得到父节点
+	while (i > 0 && arr[i] < arr[k])//没到根节点且该节点的值大于父节点时 
+	{
+		arr[k] = arr[i]; //把父节点值移到子节点
+		k = i; //向上移动
+		i = k / 2;
+	}
+   arr[k] = arr[0];
+}
