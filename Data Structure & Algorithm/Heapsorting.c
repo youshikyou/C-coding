@@ -44,10 +44,10 @@ void heapsort(int *arr, int len) {
 void adjustup(int * arr, int len, int k) {
 	arr[0] = arr[k];
 	int i = k / 2; //得到父节点
-	while (i > 0 && arr[i] < arr[k])//没到根节点且该节点的值大于父节点时 
+	while (i > 0 && arr[i] < arr[0])//没到根节点且插入节点的值大于父节点时 
 	{
 		arr[k] = arr[i]; //把父节点值移到子节点
-		k = i; //向上移动
+		k = i; //向上移动,k 是标记插入的节点arr[0]= arr[k],最一开始的时候的值应该去的节点位置。
 		i = k / 2;
 	}
    arr[k] = arr[0];
